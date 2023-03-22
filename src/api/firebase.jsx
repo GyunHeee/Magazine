@@ -4,6 +4,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   signOut,
+  onAuthStateChanged,
 } from 'firebase/auth';
 
 const firebaseConfig = {
@@ -42,3 +43,9 @@ export async function Logout() {
 provider.setCustomParameters({
   prompt: 'select_account',
 });
+
+export async function refreshLogin(callback) {
+  onAuthStateChanged(auth, (user) => {
+    callback(user);
+  });
+}

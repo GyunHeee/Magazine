@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Login, Logout } from '../api/firebase';
+import { Login, Logout, refreshLogin } from '../api/firebase';
+import User from './User';
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const { user, setUser } = useState();
+  const [user, setUser] = useState();
 
   const handleLogin = () => {
     Login().then(setUser);
@@ -12,6 +13,10 @@ export default function Navbar() {
   const handleLogout = () => {
     Logout().then(setUser);
   };
+
+  useEffect(() => {
+    refreshLogin(setUser);
+  }, []);
 
   return (
     <header className="flex justify-between items-center p-2 bg-zinc-900 text-gray-50">
@@ -47,7 +52,8 @@ export default function Navbar() {
           Culture & Art
         </p>
       </div>
-      <div className="flex">
+      <div className="flex items-center">
+        {user && <User user={user} />}
         {!user && (
           <p
             className="p-2 sm-3 mr-5 cursor-pointer font-semibold hover:opacity-30 duration-300"
