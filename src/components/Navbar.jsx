@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Login, Logout, refreshLogin } from '../api/firebase';
+import { BsFillPencilFill } from 'react-icons/bs';
 import User from './User';
 
 export default function Navbar() {
@@ -53,6 +54,12 @@ export default function Navbar() {
         </p>
       </div>
       <div className="flex items-center">
+        {user && (
+          <BsFillPencilFill
+            className="text-xl mr-4 cursor-pointer"
+            onClick={() => navigate('/new')}
+          />
+        )}
         {user && <User user={user} />}
         {!user && (
           <p
