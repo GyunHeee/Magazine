@@ -55,9 +55,23 @@ export async function refreshLogin(callback) {
 
 export async function addNewPost(post, imageUrl) {
   const id = uuid();
-  set(ref(db, 'posts/' + id), {
+  return set(ref(db, 'posts/' + id), {
     ...post,
     id,
     image: imageUrl,
   });
+}
+
+export async function readDatabase() {
+  return get(ref(db, 'posts'))
+    .then((snapshot) => {
+      if (snapshot.exists()) {
+        return Object.values(snapshot.val());
+      } else {
+        console.log('No data available');
+      }
+    })
+    .catch((error) => {
+      console.error(error);
+    });
 }
