@@ -1516,6 +1516,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@cloudinary/transformation-builder-sdk@npm:^1.2.7":
+  version: 1.2.7
+  resolution: "@cloudinary/transformation-builder-sdk@npm:1.2.7"
+  dependencies:
+    "@cloudinary/url-gen": ^1.7.0
+  checksum: b1177978a4b37b04fd8b21f58b7e2eab8f5095b8d8b00016f17a280479d13c872cd858b57115d1223a4d71dc12790b5f90aef8275154f8184f5e181466522fad
+  languageName: node
+  linkType: hard
+
+"@cloudinary/url-gen@npm:^1.7.0, @cloudinary/url-gen@npm:^1.9.2":
+  version: 1.9.2
+  resolution: "@cloudinary/url-gen@npm:1.9.2"
+  dependencies:
+    "@cloudinary/transformation-builder-sdk": ^1.2.7
+  checksum: 8e6c590dd43f568c1b5c4c5287738f8c79ec0b15ff8608a43bc60d52f9354c46edcf77fa75063e329eba4660defaede8a039a04196d0b6659ee48a9e0f7bc9d0
+  languageName: node
+  linkType: hard
+
 "@csstools/normalize.css@npm:*":
   version: 12.0.0
   resolution: "@csstools/normalize.css@npm:12.0.0"
@@ -1833,7 +1851,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@firebase/app@npm:0.9.5":
+"@firebase/app@npm:0.9.5, @firebase/app@npm:^0.9.5":
   version: 0.9.5
   resolution: "@firebase/app@npm:0.9.5"
   dependencies:
@@ -4623,6 +4641,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "blog@workspace:."
   dependencies:
+    "@cloudinary/url-gen": ^1.9.2
+    "@firebase/app": ^0.9.5
     "@tanstack/react-query": ^4.28.0
     "@testing-library/jest-dom": ^5.14.1
     "@testing-library/react": ^13.0.0
@@ -4635,6 +4655,7 @@ __metadata:
     react-router-dom: ^6.9.0
     react-scripts: 5.0.1
     tailwindcss: ^3.2.7
+    uuid: ^9.0.0
     web-vitals: ^2.1.0
   languageName: unknown
   linkType: soft
@@ -13187,6 +13208,15 @@ __metadata:
   bin:
     uuid: dist/bin/uuid
   checksum: 5575a8a75c13120e2f10e6ddc801b2c7ed7d8f3c8ac22c7ed0c7b2ba6383ec0abda88c905085d630e251719e0777045ae3236f04c812184b7c765f63a70e58df
+  languageName: node
+  linkType: hard
+
+"uuid@npm:^9.0.0":
+  version: 9.0.0
+  resolution: "uuid@npm:9.0.0"
+  bin:
+    uuid: dist/bin/uuid
+  checksum: 8dd2c83c43ddc7e1c71e36b60aea40030a6505139af6bee0f382ebcd1a56f6cd3028f7f06ffb07f8cf6ced320b76aea275284b224b002b289f89fe89c389b028
   languageName: node
   linkType: hard
 

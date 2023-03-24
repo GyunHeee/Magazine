@@ -6,6 +6,8 @@ import {
   signOut,
   onAuthStateChanged,
 } from 'firebase/auth';
+import { getDatabase, ref, get, set } from 'firebase/database';
+import { v4 as uuid } from 'uuid';
 
 const firebaseConfig = {
   apiKey: process.env.REACT_APP_API_KEY,
@@ -17,6 +19,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const db = getDatabase(app);
 
 export async function Login() {
   return signInWithPopup(auth, provider)
@@ -47,5 +50,14 @@ provider.setCustomParameters({
 export async function refreshLogin(callback) {
   onAuthStateChanged(auth, (user) => {
     callback(user);
+  });
+}
+
+export async function addNewPost(post, imageUrl) {
+  const id = uuid();
+  set(ref(db, 'posts/' + id), {
+    ...post,
+    id,
+    image: imageUrl,
   });
 }
