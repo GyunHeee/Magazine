@@ -12,16 +12,22 @@ export default function Fashion() {
 
   readDatabase();
   return (
-    <>
-      <div>
-        <h1 className="bg-zinc-900  text-4xl p-7 text-gray-50">Fashion</h1>
-        <h2 className="text-xl p-3 mx-4 font-semibold">Fashion News</h2>
-        {isLoading && <p>Loading...</p>}
-        {error && <p>{error}</p>}
-        <ul>
-          {posts && posts.map((post) => <PostCard key={post.id} post={post} />)}
-        </ul>
-      </div>
-    </>
+    <div>
+      <h1 className="bg-zinc-900  text-4xl p-7 text-gray-50">Fashion</h1>
+      <h2 className="text-xl p-3 mx-4 font-semibold border-b-2 border-gray-500">
+        Fashion News
+      </h2>
+      {isLoading && <p>Loading...</p>}
+      {error && <p>{error}</p>}
+      <ul className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 p-4">
+        {posts &&
+          posts.map(
+            (post) =>
+              post.category === 'fashion' && (
+                <PostCard key={post.id} post={post} />
+              )
+          )}
+      </ul>
+    </div>
   );
 }

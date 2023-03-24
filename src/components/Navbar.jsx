@@ -30,7 +30,7 @@ export default function Navbar() {
       <div className="flex p-2 font-semibold ">
         <p
           onClick={() => navigate('/category/fashion')}
-          className="m-3 mx-5 cursor-pointer hover:opacity-30 duration-300"
+          className="m-3 cursor-pointer hover:opacity-30 duration-300"
         >
           Fashion
         </p>
@@ -45,12 +45,6 @@ export default function Navbar() {
           className="m-3 cursor-pointer hover:opacity-30 duration-300"
         >
           Interior
-        </p>
-        <p
-          onClick={() => navigate('/category/culture')}
-          className="m-3 cursor-pointer hover:opacity-30 duration-300"
-        >
-          Culture & Art
         </p>
       </div>
       <div className="flex items-center">

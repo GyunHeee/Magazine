@@ -12,7 +12,6 @@ import About from './pages/About';
 import PostDetail from './pages/PostDetail';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom'
 import Interior from './pages/Interior';
-import Culture from './pages/Culture';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -26,7 +25,6 @@ const router = createBrowserRouter([
       {path: '/category/fashion', element: <Fashion />},
       {path: '/category/life', element: <Life />},
       {path: '/category/interior', element: <Interior />},
-      {path: '/category/culture', element: <Culture />},
       {path: '/about', element: <About />},
       {path: '/post/:id', element: <PostDetail />},
     ]
