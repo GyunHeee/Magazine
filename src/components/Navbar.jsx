@@ -20,7 +20,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="flex justify-between items-center p-2 bg-zinc-900 text-gray-50">
+    <header className="flex justify-between items-center p-2 bg-zinc-900 text-gray-50 fixed w-full">
       <h1
         onClick={() => navigate('/')}
         className="text-3xl font-bold m-2 mx-4 font cursor-pointer"
