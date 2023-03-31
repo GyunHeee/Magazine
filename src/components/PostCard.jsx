@@ -5,7 +5,9 @@ export default function PostCard({ post }) {
   const { id, image, category, title, description } = post;
   const navigate = useNavigate();
   const handleClick = () => {
-    navigate(`/post/${id}`);
+    navigate(`/post/${id}`, {
+      state: { id, image, category, title, description },
+    });
   };
   return (
     <li onClick={handleClick} className="rounded-lg shadow-md cursor-pointer">

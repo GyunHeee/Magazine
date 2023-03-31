@@ -12,8 +12,8 @@ export default function Fashion() {
 
   readDatabase();
   return (
-    <div>
-      <h1 className="bg-zinc-900  text-4xl p-7 text-gray-50">Event</h1>
+    <div className="pt-12">
+      <h1 className="bg-zinc-900  text-3xl p-7 text-gray-50">Event</h1>
       <h2 className="text-xl p-3 mx-4 font-semibold border-b-2 border-gray-500">
         Current Event
       </h2>
