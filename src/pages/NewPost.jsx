@@ -35,8 +35,8 @@ export default function NewPost() {
   };
 
   return (
-    <section className="w-full text-center my-2">
-      <h1 className="text-3xl font-bold py-2 mb-2">New Post</h1>
+    <section className="w-full text-center p-12 max-w-4xl m-auto">
+      <h1 className="text-3xl font-bold py-2 mb-2 my-12">New Post</h1>
       {success && <p className="text-xl font-bold my-2">{success}</p>}
       {file && (
         <img
