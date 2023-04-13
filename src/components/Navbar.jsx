@@ -1,19 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Login, Logout, refreshLogin } from '../api/firebase';
-import { BsFillPencilFill } from 'react-icons/bs';
 import { FaBars } from 'react-icons/fa';
 import User from './User';
+import styles from './Navbar.module.css';
 
 export default function Navbar() {
   const navigate = useNavigate();
   const [user, setUser] = useState();
+  const [open, setOpen] = useState(false);
 
   const handleLogin = () => {
     Login().then(setUser);
   };
   const handleLogout = () => {
     Logout().then(setUser);
+  };
+
+  const handleClick = () => {
+    setOpen(!open);
   };
 
   useEffect(() => {
@@ -28,37 +33,46 @@ export default function Navbar() {
       >
         Dailymag
       </h1>
-      <div className="flex p-2 font-semibold ">
-        <p
-          onClick={() => navigate('/category/fashion')}
-          className="m-3 cursor-pointer hover:opacity-30 duration-300"
-        >
-          Fashion
-        </p>
-        <p
-          onClick={() => navigate('/category/life')}
-          className="m-3 cursor-pointer hover:opacity-30 duration-300"
-        >
-          Event
-        </p>
-        <p
-          onClick={() => navigate('/category/interior')}
-          className="m-3 cursor-pointer hover:opacity-30 duration-300"
-        >
-          Interior
-        </p>
+      <div>
+        <div className={styles.nav__menu}>
+          <p
+            onClick={() => navigate('/category/fashion')}
+            className={open ? styles['nav__item--open'] : styles.nav__item}
+          >
+            Fashion
+          </p>
+          <p
+            onClick={() => navigate('/category/life')}
+            className={open ? styles['nav__item--open'] : styles.nav__item}
+          >
+            Event
+          </p>
+          <p
+            onClick={() => navigate('/category/interior')}
+            className={open ? styles['nav__item--open'] : styles.nav__item}
+          >
+            Interior
+          </p>
+          <p
+            className={open ? styles['nav__item--open'] : styles.nav__item}
+            onClick={() => navigate('/about')}
+          >
+            About us
+          </p>
+        </div>
       </div>
       <div className="flex items-center">
         {user && (
-          <BsFillPencilFill
-            className="text-xl mr-4 cursor-pointer"
+          <button
             onClick={() => navigate('/new')}
-          />
+            className={open ? styles['nav__item--open'] : styles.nav__item}
+          >
+            <User user={user} />
+          </button>
         )}
-        {user && <User user={user} />}
         {!user && (
           <p
-            className="p-2 sm-3 mr-5 cursor-pointer font-semibold hover:opacity-30 duration-300"
+            className={open ? styles['nav__item--open'] : styles.nav__item}
             onClick={handleLogin}
           >
             Login
@@ -66,19 +80,13 @@ export default function Navbar() {
         )}
         {user && (
           <p
-            className="p-2 sm-3 mr-5 cursor-pointer font-semibold hover:opacity-30 duration-300"
+            className={open ? styles['nav__item--open'] : styles.nav__item}
             onClick={handleLogout}
           >
             Logout
           </p>
         )}
-        <p
-          className="p-2 sm-3 mr-5 cursor-pointer font-semibold hover:opacity-30 duration-300"
-          onClick={() => navigate('/about')}
-        >
-          About us
-        </p>
-        <button className="block md:hidden">
+        <button className="block md:hidden" onClick={handleClick}>
           <FaBars />
         </button>
       </div>
