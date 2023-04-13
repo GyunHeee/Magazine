@@ -12,7 +12,7 @@ export default function PostCard({ post }) {
   return (
     <li onClick={handleClick} className="rounded-lg shadow-md cursor-pointer">
       <img
-        className="w-full h-4/5 transition-transform duration-300 hover:scale-105 hover:shadow-slate-700"
+        className="w-full h-4/5 transition-transform duration-300 hover:opacity-80 hover:shadow-slate-700"
         src={image}
         alt={title}
       />

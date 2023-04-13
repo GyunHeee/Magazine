@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Login, Logout, refreshLogin } from '../api/firebase';
 import { BsFillPencilFill } from 'react-icons/bs';
+import { FaBars } from 'react-icons/fa';
 import User from './User';
 
 export default function Navbar() {
@@ -20,7 +21,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="flex justify-between items-center p-2 bg-zinc-900 text-gray-50 fixed w-full">
+    <header className="flex justify-between items-center p-2 bg-zinc-900 text-gray-50 fixed w-full z-50">
       <h1
         onClick={() => navigate('/')}
         className="text-3xl font-bold m-2 mx-4 font cursor-pointer"
@@ -77,6 +78,9 @@ export default function Navbar() {
         >
           About us
         </p>
+        <button className="block md:hidden">
+          <FaBars />
+        </button>
       </div>
     </header>
   );
