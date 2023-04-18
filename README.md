@@ -41,7 +41,7 @@
 
 ## 사용 기술
 
-React, tailwindcss, Firebase (Authentication, RealTime Database), Cloudinary,React Router, React Query(Tanstack Query)
+React, Tailwind CSS, Firebase (Authentication, RealTime Database), Cloudinary, React Router, React Query(Tanstack Query)
 
 ## 배운 점
 
