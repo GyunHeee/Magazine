@@ -59,7 +59,3 @@ React, tailwindcss, Firebase (Authentication, RealTime Database), Cloudinary,Rea
 
 - 네트워크 성능 개선 리팩토링
 - 반응형 웹 페이지 구현
-
-## Depoly
-
-https://magazinedailysite.netlify.app/
